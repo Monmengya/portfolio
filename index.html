@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赖嘉琪 | 视觉设计师</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F7F5F2;
+      --ink: #1A1A1A;
+      --muted: #888;
+      --accent: #C49A6C;
+      --line: #E0DDD8;
+      --card-bg: #EFECEA;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: difference;
+      color: #fff;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 10vw, 120px);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .hero-role {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+    .hero-divider {
+      width: 1px;
+      height: 80px;
+      background: var(--line);
+      margin-bottom: 48px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-scroll .line {
+      width: 1px;
+      height: 60px;
+      background: var(--line);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── WORKS ── */
+    #works {
+      padding: 120px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400;
+      margin-bottom: 64px;
+    }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .work-card {
+      aspect-ratio: 4/5;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .work-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+    .card-inner { position: relative; height: 100%; display: flex; flex-direction: column; }
+    .card-deco {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: auto;
+      opacity: 0.15;
+      color: var(--ink);
+      transition: all 0.4s ease;
+    }
+    .work-card:hover .card-deco {
+      opacity: 0.25;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+    .card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: auto;
+    }
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+    .card-tag {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CATEGORY MODAL (Level 1) ── */
+    #category-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: var(--bg);
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+    #category-modal.open { opacity: 1; visibility: visible; }
+
+    #cat-modal-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      z-index: 310;
+      width: 44px; height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #cat-modal-close svg { width: 16px; height: 16px; stroke: var(--ink); }
+    #cat-modal-close:hover { background: var(--ink); }
+    #cat-modal-close:hover svg { stroke: #fff; }
+
+    .cat-modal-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 48px 100px;
+    }
+    .cat-modal-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .cat-modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .cat-modal-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: #555;
+      max-width: 600px;
+      margin-bottom: 64px;
+      line-height: 1.8;
+    }
+
+    /* Subcategory Grid */
+    .subcat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .subcat-card {
+      aspect-ratio: 16/10;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .subcat-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .subcat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(196,154,108,0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .subcat-card:hover::before { opacity: 1; }
+    .subcat-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+    .subcat-name {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .subcat-count {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ── GALLERY MODAL (Level 2) ── */
+    #gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      background: var(--bg);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      overflow-y: auto;
+    }
+    #gallery-modal.open { opacity: 1; visibility: visible; }
+
+    #gal-modal-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      z-index: 410;
+      width: 44px; height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #gal-modal-close svg { width: 16px; height: 16px; stroke: var(--ink); }
+    #gal-modal-close:hover { background: var(--ink); }
+    #gal-modal-close:hover svg { stroke: #fff; }
+
+    #gal-modal-back {
+      position: fixed;
+      top: 20px; left: 24px;
+      z-index: 410;
+      padding: 12px 20px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #gal-modal-back:hover { border-color: var(--accent); }
+
+    .gallery-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 90px 24px 20px;
+      background: linear-gradient(to bottom, var(--bg) 80%, transparent);
+      z-index: 300;
+      pointer-events: none;
+    }
+    .gallery-header > * { pointer-events: auto; }
+    .gallery-breadcrumb {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    /* Horizontal Scroll Gallery */
+    .gallery-container {
+      columns: 4 280px;
+      column-gap: 16px;
+      padding: 120px 24px 80px;
+      width: 100%;
+      box-sizing: border-box;
+      min-height: calc(100vh - 180px);
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+      cursor: pointer;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      top: 30%;
+      padding: 40px 16px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.05em;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Placeholder for missing images */
+    .gallery-placeholder {
+      flex-shrink: 0;
+      height: calc(100vh - 240px);
+      aspect-ratio: 16/9;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--muted);
+      scroll-snap-align: center;
+    }
+    .gallery-placeholder::before {
+      content: '';
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .gallery-placeholder-text {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 120px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .about-left { max-width: 480px; }
+    .about-bio {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 2;
+      color: #444;
+      margin-bottom: 48px;
+    }
+    .about-bio strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .about-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .detail-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .detail-value {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .about-right { max-width: 560px; }
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .exp-item { position: relative; padding-left: 24px; }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .exp-year {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .exp-company {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .exp-title {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .exp-bullets {
+      list-style: none;
+      font-size: 14px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.8;
+    }
+    .exp-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+    }
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--line);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 120px 48px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    .contact-email {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    .contact-email a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+      transition: border-color 0.3s ease;
+    }
+    .contact-email a:hover { border-color: var(--accent); }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+    }
+    .contact-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-links a:hover { color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .works-grid { grid-template-columns: repeat(2, 1fr); }
+      .subcat-grid { grid-template-columns: repeat(2, 1fr); }
+      #about { grid-template-columns: 1fr; gap: 60px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      #works, #about { padding: 80px 24px; }
+      .works-grid { grid-template-columns: 1fr; }
+      .subcat-grid { grid-template-columns: 1fr; }
+      .cat-modal-inner { padding: 100px 24px 60px; }
+      #cat-modal-close, #gal-modal-close { top: 20px; right: 24px; }
+      #gal-modal-back { top: 20px; left: 24px; }
+      .gallery-container { padding: 140px 24px 24px; }
+      .gallery-item { height: calc(100vh - 180px); }
+    }
+  
+    /* ── LIGHTBOX ── */
+        #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      background: rgba(10,10,10,0.95);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+    #lightbox.open { opacity: 1; visibility: visible; }
+    #lightbox-inner {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+        #lb-img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    #lb-caption {
+      color: #888;
+      font-size: 13px;
+      margin-top: 14px;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+    #lb-close {
+      position: fixed;
+      top: 24px; right: 32px;
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+    #lb-close:hover { background: rgba(255,255,255,0.12); }
+    #lb-prev, #lb-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      background: rgba(26,26,26,0.9);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    
+      display: none;
+    }
+    #lb-prev { left: 24px; 
+      display: none;
+    }
+    #lb-next { right: 24px; }
+    #lb-prev:hover, #lb-next:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); }
+    #lb-prev[style*="hidden"], #lb-next[style*="hidden"] { opacity: 0.3; cursor: default; }
+
+
+
+/* ── Responsive Masonry ── */
+@media (max-width: 1200px) {
+  .gallery-container { columns: 3 260px; }
+}
+@media (max-width: 800px) {
+  .gallery-container { columns: 2 220px; padding: 100px 16px 60px; }
+  .gallery-title { font-size: 20px !important; }
+  #gal-modal-close { top: 16px; right: 16px; }
+  #gal-modal-back { top: 16px; left: 16px; }
+}
+@media (max-width: 480px) {
+  .gallery-container { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">赖嘉琪</div>
+  <div class="nav-links">
+    <a href="#works">Works</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <p class="hero-eyebrow">视觉设计师 · 设计主管</p>
+  <h1 class="hero-name">赖嘉琪</h1>
+  <p class="hero-role">Visual Designer &nbsp;/&nbsp; Brand &nbsp;/&nbsp; UI &nbsp;/&nbsp; Campaign</p>
+  <div class="hero-divider"></div>
+  <div class="hero-scroll">
+    <div class="line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── WORKS ── -->
+<section id="works">
+  <p class="section-label reveal">Selected Works</p>
+  <h2 class="section-title reveal">作品集</h2>
+  <div class="works-grid">
+
+    <!-- Card 1: 雅萌 -->
+    <div class="work-card reveal" data-category="yaman">
+      <div class="card-inner">
+        <svg class="card-deco" viewBox="0 0 200 200" fill="none">
+          <rect x="85" y="30" width="30" height="20" rx="4" stroke="currentColor" stroke-width="1"/>
+          <rect x="60" y="50" width="80" height="120" rx="20" stroke="currentColor" stroke-width="1"/>
+          <circle cx="100" cy="100" r="20" stroke="currentColor" stroke-width="1"/>
+          <line x1="75" y1="140" x2="125" y2="140" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <span class="card-num">01</span>
+        <div class="card-content">
+          <p class="card-tag">美容个护</p>
+          <h3 class="card-name">雅萌 YA-MAN</h3>
+          <p class="card-desc">高端美容仪器品牌电商视觉设计，涵盖详情页、Banner、活动主视觉</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: 家电 -->
+    <div class="work-card reveal" data-category="appliance">
+      <div class="card-inner">
+        <svg class="card-deco" viewBox="0 0 200 200" fill="none">
+          <rect x="40" y="60" width="120" height="100" rx="4" stroke="currentColor" stroke-width="1"/>
+          <rect x="55" y="75" width="90" height="60" stroke="currentColor" stroke-width="1"/>
+          <circle cx="145" cy="85" r="8" stroke="currentColor" stroke-width="1"/>
+          <line x1="60" y1="170" x2="80" y2="170" stroke="currentColor" stroke-width="1"/>
+          <line x1="120" y1="170" x2="140" y2="170" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <span class="card-num">02</span>
+        <div class="card-content">
+          <p class="card-tag">家电品牌</p>
+          <h3 class="card-name">美的 Midea</h3>
+          <p class="card-desc">家电巨头电商视觉设计，包含活动页、详情页、促销物料</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 保健品 -->
+    <div class="work-card reveal" data-category="health">
+      <div class="card-inner">
+        <svg class="card-deco" viewBox="0 0 200 200" fill="none">
+          <rect x="60" y="40" width="80" height="120" rx="40" stroke="currentColor" stroke-width="1"/>
+          <rect x="85" y="70" width="30" height="60" rx="4" stroke="currentColor" stroke-width="1"/>
+          <line x1="100" y1="55" x2="100" y2="65" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <span class="card-num">03</span>
+        <div class="card-content">
+          <p class="card-tag">保健品</p>
+          <h3 class="card-name">SpringLeaf</h3>
+          <p class="card-desc">澳洲保健品品牌视觉设计，详情页、包装、品牌物料</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: 小熊 -->
+    <div class="work-card reveal" data-category="bear">
+      <div class="card-inner">
+        <svg class="card-deco" viewBox="0 0 200 200" fill="none">
+          <circle cx="70" cy="70" r="25" stroke="currentColor" stroke-width="1"/>
+          <circle cx="130" cy="70" r="25" stroke="currentColor" stroke-width="1"/>
+          <ellipse cx="100" cy="120" rx="50" ry="40" stroke="currentColor" stroke-width="1"/>
+          <circle cx="85" cy="115" r="4" stroke="currentColor" stroke-width="1"/>
+          <circle cx="115" cy="115" r="4" stroke="currentColor" stroke-width="1"/>
+          <ellipse cx="100" cy="130" rx="8" ry="6" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <span class="card-num">04</span>
+        <div class="card-content">
+          <p class="card-tag">小家电</p>
+          <h3 class="card-name">小熊电器</h3>
+          <p class="card-desc">创意小家电品牌电商设计，详情页、活动页、Banner</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: 其他 -->
+    <div class="work-card reveal" data-category="others">
+      <div class="card-inner">
+        <svg class="card-deco" viewBox="0 0 200 200" fill="none">
+          <rect x="30" y="50" width="60" height="80" rx="2" stroke="currentColor" stroke-width="1"/>
+          <rect x="70" y="70" width="60" height="80" rx="2" stroke="currentColor" stroke-width="1"/>
+          <rect x="110" y="90" width="60" height="60" rx="2" stroke="currentColor" stroke-width="1"/>
+          <line x1="30" y1="150" x2="170" y2="150" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <span class="card-num">05</span>
+        <div class="card-content">
+          <p class="card-tag">更多作品</p>
+          <h3 class="card-name">其他项目</h3>
+          <p class="card-desc">网页设计、包装设计、品牌物料等多元化设计作品</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: 关于我（特殊卡片） -->
+    <div class="work-card reveal" style="background: var(--ink); color: #fff;" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      <div class="card-inner">
+        <span class="card-num" style="color: var(--accent);">→</span>
+        <div class="card-content">
+          <p class="card-tag" style="color: var(--accent);">About</p>
+          <h3 class="card-name" style="color: #fff;">了解更多<br>关于我</h3>
+          <p class="card-desc" style="color: #888;">12年设计经验 · 品牌视觉 · 电商设计</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CATEGORY MODAL (Level 1) ── -->
+<div id="category-modal" aria-hidden="true">
+  <button id="cat-modal-close" aria-label="关闭">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="1.5"/></svg>
+  </button>
+  <div class="cat-modal-inner">
+    <p class="cat-modal-eyebrow" id="cat-eyebrow">Category</p>
+    <h2 class="cat-modal-title" id="cat-title">Title</h2>
+    <p class="cat-modal-desc" id="cat-desc">Description</p>
+    <div class="subcat-grid" id="subcat-grid">
+      <!-- Subcategories injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ── GALLERY MODAL (Level 2) ── -->
+<div id="gallery-modal" aria-hidden="true">
+  <button id="gal-modal-close" aria-label="关闭">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="1.5"/></svg>
+  </button>
+  <button id="gal-modal-back">← 返回分类</button>
+  <div class="gallery-header">
+    <p class="gallery-breadcrumb" id="gal-breadcrumb">雅萌 / PC端详情页</p>
+    <h3 class="gallery-title" id="gal-title">PC端详情页</h3>
+  </div>
+  <div class="gallery-container" id="gallery-container">
+    <!-- Gallery items injected by JS -->
+  </div>
+</div>
+
+
+<!-- ── LIGHTBOX (Level 3) ── -->
+<div id="lightbox" aria-hidden="true">
+  <div id="lightbox-inner">
+    <button id="lb-close" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <button id="lb-prev" aria-label="上一张">&#8592;</button>
+    <img id="lb-img" src="" alt="">
+    <button id="lb-next" aria-label="下一张">&#8594;</button>
+    <p id="lb-caption"></p>
+  </div>
+</div>
+
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-left">
+    <p class="section-label reveal">About</p>
+    <h2 class="section-title reveal">关于我</h2>
+    <p class="about-bio reveal">
+      我是赖嘉琪，<strong>12年设计从业者</strong>，从网页设计起步，一路成长为设计经理。<br><br>
+      擅长<strong>品牌视觉设计、活动视觉、包装物料与 UI 界面</strong>，相信好的设计不仅是视觉好看，更要让信息传达有效、让品牌被记住。<br><br>
+      热爱将美学与商业目标结合，用设计讲好每一个品牌故事。
+    </p>
+    <div class="about-detail reveal">
+      <div class="detail-item">
+        <span class="detail-label">坐标</span>
+        <span class="detail-value">广东 · 佛山顺德</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">方向</span>
+        <span class="detail-value">品牌视觉 · 活动视觉 · UI设计</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">工具</span>
+        <span class="detail-value">Photoshop · Illustrator · Figma · After Effects</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">经验</span>
+        <span class="detail-value">12 年</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-right">
+    <p class="section-label reveal">Experience</p>
+
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <p class="exp-year">2021.4 – 2025.10</p>
+        <p class="exp-company">佛山市冠珠陶瓷有限公司（大良经销旗舰店）</p>
+        <p class="exp-title">设计 / 活动策划经理</p>
+        <ul class="exp-bullets">
+          <li>带领团队完成活动节点的品牌视觉、门店物料与营销宣传的全流程设计与输出</li>
+          <li>负责需求拆解、任务分配，具备团队管理与项目统筹能力</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <p class="exp-year">2017.10 – 2021.3</p>
+        <p class="exp-company">广东美易达网络科技集团有限公司</p>
+        <p class="exp-title">资深设计</p>
+        <ul class="exp-bullets">
+          <li>统筹重点项目视觉设计，对接运营与产品需求，把控设计质量与交付进度</li>
+          <li>积累跨团队沟通与项目管理经验，支撑业务规模化增长</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <p class="exp-year">2016.4 – 2017.10</p>
+        <p class="exp-company">广东哥登网络科技有限公司</p>
+        <p class="exp-title">中级设计</p>
+        <ul class="exp-bullets">
+          <li>承担电商及品牌相关视觉设计，独立产出海报、Banner、详情页等宣传物料</li>
+          <li>参与多个项目全流程设计交付，提升视觉统一性与转化表现</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <p class="section-label reveal">Contact</p>
+  <h2 class="section-title reveal" style="margin-bottom: 48px;">期待合作</h2>
+  <p class="contact-email reveal">
+    <a href="mailto:505391656@qq.com">505391656@qq.com</a>
+  </p>
+  <div class="contact-links reveal">
+    <a href="https://xhslink.cn/m/8RuBYwDHuQs" target="_blank">小红书</a>
+    <a href="tel:13433157243">134-3315-7243</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2025 赖嘉琪 · Visual Designer</p>
+</footer>
+
+<script>
+  // ── REVEAL ANIMATION ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── NAV SCROLL EFFECT ──
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.mixBlendMode = window.scrollY > window.innerHeight * 0.8
+      ? 'normal' : 'difference';
+    nav.style.color = window.scrollY > window.innerHeight * 0.8 ? '#1A1A1A' : '#fff';
+  });
+
+  // ── DATA STRUCTURE ──
+  const portfolioData = {
+    yaman: {
+      eyebrow: '美容个护',
+      title: '雅萌 YA-MAN',
+      desc: '日本高端美容仪器品牌，专注射频美容仪、洁面仪等。负责天猫旗舰店电商视觉设计，涵盖 PC / APP 详情页、Banner、海报与详情长图。',
+      subcategories: [
+        { id: 'all', name: '全部作品', icon: '🗂', count: 66 },
+        { id: 'pc', name: 'PC端详情页', icon: '🖥️', count: 18 },
+        { id: 'app', name: 'APP端详情页', icon: '📱', count: 14 },
+        { id: 'banner', name: 'Banner', icon: '🎨', count: 19 },
+        { id: 'haibao', name: '海报', icon: '🖼️', count: 13 },
+        { id: 'detail', name: '详情长图', icon: '📐', count: 2 }
+      ],
+      images: {
+        pc: [
+          { src: '作品集/雅萌/PC页面/38女王节.jpg', label: '38女王节' },
+          { src: '作品集/雅萌/PC页面/520页面.jpg', label: '520页面' },
+          { src: '作品集/雅萌/PC页面/618开抢PC.jpg', label: '618开抢PC' },
+          { src: '作品集/雅萌/PC页面/618开门红.jpg', label: '618开门红' },
+          { src: '作品集/雅萌/PC页面/618预热页面.jpg', label: '618预热页面' },
+          { src: '作品集/雅萌/PC页面/双十二页面.jpg', label: '双十二页面' },
+          { src: '作品集/雅萌/PC页面/圣诞页面.jpg', label: '圣诞页面' },
+          { src: '作品集/雅萌/PC页面/夏季日常.jpg', label: '夏季日常' },
+          { src: '作品集/雅萌/PC页面/夏季日常页.jpg', label: '夏季日常页' },
+          { src: '作品集/雅萌/PC页面/情人节页面.jpg', label: '情人节页面' },
+          { src: '作品集/雅萌/PC页面/春季日常.jpg', label: '春季日常' },
+          { src: '作品集/雅萌/PC页面/雅萌520.jpg', label: '雅萌520' },
+          { src: '作品集/雅萌/PC页面/雅萌七夕.jpg', label: '雅萌七夕' },
+          { src: '作品集/雅萌/PC页面/雅萌双十一开抢.jpg', label: '雅萌双十一开抢' },
+          { src: '作品集/雅萌/PC页面/雅萌国庆.jpg', label: '雅萌国庆' },
+          { src: '作品集/雅萌/PC页面/雅萌开学季.jpg', label: '雅萌开学季' },
+          { src: '作品集/雅萌/PC页面/雅萌春夏.jpg', label: '雅萌春夏' },
+          { src: '作品集/雅萌/PC页面/雅萌春夏PC.jpg', label: '雅萌春夏PC' },
+        ],
+        app: [
+          { src: '作品集/雅萌/APP页面/38女王APP.jpg', label: '38女王APP' },
+          { src: '作品集/雅萌/APP页面/618开抢页面APP.jpg', label: '618开抢页面APP' },
+          { src: '作品集/雅萌/APP页面/618预热APP.jpg', label: '618预热APP' },
+          { src: '作品集/雅萌/APP页面/7月日常页APP.jpg', label: '7月日常页APP' },
+          { src: '作品集/雅萌/APP页面/双十二开抢APP.jpg', label: '双十二开抢APP' },
+          { src: '作品集/雅萌/APP页面/圣诞页面APP.jpg', label: '圣诞页面APP' },
+          { src: '作品集/雅萌/APP页面/夏季日常APP.jpg', label: '夏季日常APP' },
+          { src: '作品集/雅萌/APP页面/春夏页面APP-压缩.jpg', label: '春夏页面APP 压缩' },
+          { src: '作品集/雅萌/APP页面/母亲节APP_01.jpg', label: '母亲节APP 01' },
+          { src: '作品集/雅萌/APP页面/雅萌520APP.jpg', label: '雅萌520APP' },
+          { src: '作品集/雅萌/APP页面/雅萌七夕APP.jpg', label: '雅萌七夕APP' },
+          { src: '作品集/雅萌/APP页面/雅萌国庆APP.jpg', label: '雅萌国庆APP' },
+          { src: '作品集/雅萌/APP页面/雅萌春夏APP.jpg', label: '雅萌春夏APP' },
+          { src: '作品集/雅萌/APP页面/雅萌高潮APP.jpg', label: '雅萌高潮APP' },
+        ],
+        banner: [
+          { src: '作品集/雅萌/banner/38PCbanner.jpg', label: '38PCbanner' },
+          { src: '作品集/雅萌/banner/520PCbanner.jpg', label: '520PCbanner' },
+          { src: '作品集/雅萌/banner/618预热PC.jpg', label: '618预热PC' },
+          { src: '作品集/雅萌/banner/七夕页面.jpg', label: '七夕页面' },
+          { src: '作品集/雅萌/banner/元宵节banner.jpg', label: '元宵节banner' },
+          { src: '作品集/雅萌/banner/双十二PCbanner.jpg', label: '双十二PCbanner' },
+          { src: '作品集/雅萌/banner/圣诞PCbanner.jpg', label: '圣诞PCbanner' },
+          { src: '作品集/雅萌/banner/夏季日常.jpg.png', label: '夏季日常.jpg' },
+          { src: '作品集/雅萌/banner/情人节PCbanner.jpg', label: '情人节PCbanner' },
+          { src: '作品集/雅萌/banner/春季日常2.jpg', label: '春季日常2' },
+          { src: '作品集/雅萌/banner/赖嘉琪-思卡莉-雅萌618开门红PC-2_01.jpg', label: '赖嘉琪 思卡莉 雅萌618开门红PC 2 01' },
+          { src: '作品集/雅萌/banner/雅萌618开门红预热.jpg', label: '雅萌618开门红预热' },
+          { src: '作品集/雅萌/banner/雅萌七夕bannePC.jpg', label: '雅萌七夕bannePC' },
+          { src: '作品集/雅萌/banner/雅萌国庆banner.jpg', label: '雅萌国庆banner' },
+          { src: '作品集/雅萌/banner/雅萌圣诞banner.jpg', label: '雅萌圣诞banner' },
+          { src: '作品集/雅萌/banner/雅萌夏日banner.jpg', label: '雅萌夏日banner' },
+          { src: '作品集/雅萌/banner/雅萌新春banner.jpg', label: '雅萌新春banner' },
+          { src: '作品集/雅萌/banner/雅萌春夏banner.jpg', label: '雅萌春夏banner' },
+          { src: '作品集/雅萌/banner/高潮期banner.jpg', label: '高潮期banner' },
+        ],
+        haibao: [
+          { src: '作品集/雅萌/海报/2020520海报.jpg', label: '2020520海报' },
+          { src: '作品集/雅萌/海报/2020圣诞节.jpg', label: '2020圣诞节' },
+          { src: '作品集/雅萌/海报/2021520.jpg', label: '2021520' },
+          { src: '作品集/雅萌/海报/2021618.jpg', label: '2021618' },
+          { src: '作品集/雅萌/海报/2021元旦.jpg', label: '2021元旦' },
+          { src: '作品集/雅萌/海报/2021女王节.jpg', label: '2021女王节' },
+          { src: '作品集/雅萌/海报/2021母亲节.jpg', label: '2021母亲节' },
+          { src: '作品集/雅萌/海报/七夕.jpg', label: '七夕' },
+          { src: '作品集/雅萌/海报/倒计时海报0天.jpg', label: '倒计时海报0天' },
+          { src: '作品集/雅萌/海报/倒计时海报1天2.jpg', label: '倒计时海报1天2' },
+          { src: '作品集/雅萌/海报/倒计时海报2天.jpg', label: '倒计时海报2天' },
+          { src: '作品集/雅萌/海报/小暑海报.jpg', label: '小暑海报' },
+          { src: '作品集/雅萌/海报/新年海报.jpg', label: '新年海报' },
+        ],
+        detail: [
+          { src: '作品集/雅萌/详情/bloom+189P.jpg', label: 'bloom+189P' },
+          { src: '作品集/雅萌/详情/plus+5tz.jpg', label: 'plus+5tz' },
+        ]
+      }
+    },
+    health: {
+      eyebrow: '保健品',
+      title: '保健品',
+      desc: '澳洲 / 进口保健品品牌视觉设计，包含 SpringLeaf 与 NMN 系列电商视觉。',
+      subcategories: [
+        { id: 'all', name: '全部作品', icon: '🗂', count: 7 },
+        { id: 'springleaf', name: 'SpringLeaf', icon: '🌿', count: 5 },
+        { id: 'nmn', name: 'NMN', icon: '💊', count: 2 }
+      ],
+      images: {
+        springleaf: [
+          { src: '作品集/保健品/美易达SpringLeaf/520APP.jpg', label: '520APP' },
+          { src: '作品集/保健品/美易达SpringLeaf/520PC活动页.jpg', label: '520PC活动页' },
+          { src: '作品集/保健品/美易达SpringLeaf/烈儿直播海报.jpg', label: '烈儿直播海报' },
+          { src: '作品集/保健品/美易达SpringLeaf/详情特级乳铁蛋白粉.jpg', label: '详情特级乳铁蛋白粉' },
+          { src: '作品集/保健品/美易达SpringLeaf/详情甲壳素.jpg', label: '详情甲壳素' },
+        ],
+        nmn: [
+          { src: '作品集/保健品/美易达NMN/banner-2.jpg', label: 'banner 2' },
+          { src: '作品集/保健品/美易达NMN/页面.jpg', label: '页面' },
+        ]
+      }
+    },
+    appliance: {
+      eyebrow: '家电品牌',
+      title: '家电',
+      desc: '家电品牌电商视觉设计，含容声、洁碧、美的。',
+      subcategories: [
+        { id: 'all', name: '全部作品', icon: '🗂', count: 10 },
+        { id: 'rongsheng', name: '容声', icon: '❄️', count: 3 },
+        { id: 'jiebi', name: '洁碧', icon: '🚿', count: 4 },
+        { id: 'midea', name: '美的', icon: '🔌', count: 3 }
+      ],
+      images: {
+        rongsheng: [
+          { src: '作品集/家电/容声/38海报.jpg', label: '38海报' },
+          { src: '作品集/家电/容声/女生节直播海报.jpg', label: '女生节直播海报' },
+          { src: '作品集/家电/容声/详情RB45D1126.jpg', label: '详情RB45D1126' },
+        ],
+        jiebi: [
+          { src: '作品集/家电/洁碧/洁碧双十一高潮页APP.jpg', label: '洁碧双十一高潮页APP' },
+          { src: '作品集/家电/洁碧/洁碧双十一高潮页面.jpg', label: '洁碧双十一高潮页面' },
+          { src: '作品集/家电/洁碧/洁碧开门红.jpg', label: '洁碧开门红' },
+          { src: '作品集/家电/洁碧/洁碧开门红APP.jpg', label: '洁碧开门红APP' },
+        ],
+        midea: [
+          { src: '作品集/家电/美的/吸尘器海报.jpg', label: '吸尘器海报' },
+          { src: '作品集/家电/美的/微波炉海报.jpg', label: '微波炉海报' },
+          { src: '作品集/家电/美的/烤箱海报.jpg', label: '烤箱海报' },
+        ]
+      }
+    },
+    bear: {
+      eyebrow: '小家电',
+      title: '小熊电器',
+      desc: '创意小家电品牌电商视觉设计，含活动页、详情页与 Banner。',
+      subcategories: [
+        { id: 'all', name: '全部作品', icon: '🗂', count: 11 },
+        { id: 'page', name: '活动/详情页', icon: '🖥️', count: 6 },
+        { id: 'banner', name: 'Banner', icon: '🎨', count: 6 }
+      ],
+      images: {
+        page: [
+          { src: '作品集/小熊/1元预定.jpg', label: '1元预定' },
+          { src: '作品集/小熊/99大促页面.jpg', label: '99大促页面' },
+          { src: '作品集/小熊/夏日首页.jpg', label: '夏日首页' },
+          { src: '作品集/小熊/家装节承接页.jpg', label: '家装节承接页' },
+          { src: '作品集/小熊/提前购二级.jpg', label: '提前购二级' },
+          { src: '作品集/小熊/详情DDG-D10J2.jpg', label: '详情DDG D10J2' },
+        ],
+        banner: [
+          { src: '作品集/小熊/banner/1元预定.jpg', label: '1元预定' },
+          { src: '作品集/小熊/banner/618.jpg', label: '618' },
+          { src: '作品集/小熊/banner/99大促.jpg', label: '99大促' },
+          { src: '作品集/小熊/banner/中秋.jpg', label: '中秋' },
+          { src: '作品集/小熊/banner/夏季下午茶banner.jpg', label: '夏季banner' },
+          ]
+      }
+    },
+    others: {
+      eyebrow: '更多作品',
+      title: '其他项目',
+      desc: '活动物料、短视频海报等多元化设计作品。',
+      subcategories: [
+        { id: 'all', name: '全部作品', icon: '🗂', count: 3 },
+        { id: 'print', name: '活动物料', icon: '📋', count: 3 }
+      ],
+      images: {
+        print: [
+          { src: '作品集/其他/易拉宝-活动宣传.jpg', label: '易拉宝 活动宣传' },
+          { src: '作品集/其他/活动易拉宝3.jpg', label: '活动易拉宝3' },
+          { src: '作品集/其他/短视频海报.jpg', label: '短视频海报' },
+        ]
+      }
+    }
+  };
+
+  // ── MODAL STATE ──
+  let currentCategory = null;
+  let currentSubcategory = null;
+
+  // ── CATEGORY MODAL ──
+  const catModal = document.getElementById('category-modal');
+  const catEyebrow = document.getElementById('cat-eyebrow');
+  const catTitle = document.getElementById('cat-title');
+  const catDesc = document.getElementById('cat-desc');
+  const subcatGrid = document.getElementById('subcat-grid');
+
+  function openCategory(categoryId) {
+    const data = portfolioData[categoryId];
+    if (!data) return;
+    
+    currentCategory = categoryId;
+    catEyebrow.textContent = data.eyebrow;
+    catTitle.textContent = data.title;
+    catDesc.textContent = data.desc;
+    
+    // Build subcategory grid
+    subcatGrid.innerHTML = data.subcategories.map(sub => `
+      <div class="subcat-card" data-subcategory="${sub.id}">
+        <span class="subcat-icon">${sub.icon}</span>
+        <span class="subcat-name">${sub.name}</span>
+        <span class="subcat-count">${sub.count}</span>
+      </div>
+    `).join('');
+    
+    // Add click handlers
+    subcatGrid.querySelectorAll('.subcat-card').forEach(card => {
+      card.addEventListener('click', () => {
+        openGallery(categoryId, card.dataset.subcategory);
+      });
+    });
+    
+    catModal.classList.add('open');
+    catModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCategory() {
+    catModal.classList.remove('open');
+    catModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    currentCategory = null;
+  }
+
+  // ── GALLERY MODAL ──
+  const galModal = document.getElementById('gallery-modal');
+  const galBreadcrumb = document.getElementById('gal-breadcrumb');
+  const galTitle = document.getElementById('gal-title');
+  const galContainer = document.getElementById('gallery-container');
+
+  function openGallery(categoryId, subcategoryId) {
+    const catData = portfolioData[categoryId];
+    let subData = catData.subcategories.find(s => s.id === subcategoryId);
+    let images;
+    if (subcategoryId === 'all') {
+      subData = { name: '全部作品' };
+      images = catData.subcategories
+        .filter(s => s.id !== 'all')
+        .flatMap(s => catData.images[s.id] || []);
+    } else {
+      images = catData.images[subcategoryId] || [];
+    }
+
+    currentSubcategory = subcategoryId;
+    galBreadcrumb.textContent = catData.title + ' / ' + subData.name;
+    galTitle.textContent = subData.name;
+    
+    // Build gallery
+    galContainer.innerHTML = images.map((img, idx) => {
+      return `
+        <div class="gallery-item" onclick="openLightbox('${img.src}', '${img.label.replace(/'/g, "&#39;")}')">
+          <img src="${img.src}" alt="${img.label}" loading="${idx < 2 ? 'eager' : 'lazy'}">
+          <span class="gallery-item-label">${img.label}</span>
+        </div>
+      `;
+    }).join('');
+
+    galModal.classList.add('open');
+    galModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeGallery() {
+    galModal.classList.remove('open');
+    galModal.setAttribute('aria-hidden', 'true');
+    currentSubcategory = null;
+  }
+
+  function backToCategory() {
+    closeGallery();
+    // Category modal stays open
+  }
+
+  // ── EVENT BINDINGS ──
+  document.querySelectorAll('.work-card[data-category]').forEach(card => {
+    card.addEventListener('click', () => openCategory(card.dataset.category));
+  });
+
+  document.getElementById('cat-modal-close').addEventListener('click', closeCategory);
+  document.getElementById('gal-modal-close').addEventListener('click', closeGallery);
+  document.getElementById('gal-modal-back').addEventListener('click', backToCategory);
+
+  // Close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (galModal.classList.contains('open')) {
+        closeGallery();
+      } else if (catModal.classList.contains('open')) {
+        closeCategory();
+      }
+    }
+  });
+
+  // Close category modal on backdrop click
+  catModal.addEventListener('click', (e) => {
+    if (e.target === catModal) closeCategory();
+  });
+
+  // ── LIGHTBOX ──
+  let lbImages = [];
+  let lbIndex = 0;
+  const lbEl     = document.getElementById('lightbox');
+  const lbImgEl  = document.getElementById('lb-img');
+  const lbCapEl  = document.getElementById('lb-caption');
+  const lbPrevEl = document.getElementById('lb-prev');
+  const lbNextEl = document.getElementById('lb-next');
+
+  function openLightbox(src, alt) {
+    console.log('[Lightbox] openLightbox called', src, alt);
+    const imgs = Array.from(galContainer.querySelectorAll('img'));
+    console.log('[Lightbox] imgs in container:', imgs.length, '| current gallery-item parent:', document.querySelector('.gallery-item[onclick]') ? 'found' : 'not found');
+    lbImages = imgs.map(i => ({ src: i.src, alt: i.alt }));
+    lbIndex  = imgs.findIndex(i => i.src === src);
+    if (lbIndex < 0) lbIndex = 0;
+    showLightbox();
+    lbEl.classList.add('open');
+    lbEl.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    console.log('[Lightbox] lightbox opened, is-open:', lbEl.classList.contains('open'));
+  }
+
+  function showLightbox() {
+    lbImgEl.src = lbImages[lbIndex].src;
+    lbCapEl.textContent = lbImages[lbIndex].alt;
+    lbPrevEl.style.visibility = lbIndex > 0 ? 'visible' : 'hidden';
+    lbNextEl.style.visibility = lbIndex < lbImages.length - 1 ? 'visible' : 'hidden';
+  }
+
+  function closeLightbox() {
+    lbEl.classList.remove('open');
+    lbEl.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  lbPrevEl.addEventListener('click', () => { lbIndex = Math.max(0, lbIndex - 1); showLightbox(); });
+  lbNextEl.addEventListener('click', () => { lbIndex = Math.min(lbImages.length - 1, lbIndex + 1); showLightbox(); });
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  lbEl.addEventListener('click', e => { if (e.target === lbEl) closeLightbox(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lbEl.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  { lbIndex = Math.max(0, lbIndex - 1); showLightbox(); }
+    if (e.key === 'ArrowRight') { lbIndex = Math.min(lbImages.length - 1, lbIndex + 1); showLightbox(); }
+    if (e.key === 'Escape')     closeLightbox();
+  });
+
+</script>
+
+</body>
+</html>
